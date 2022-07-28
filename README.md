@@ -15,4 +15,4 @@ docker run \
 -e "MINIO_ROOT_PASSWORD=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY" \
 quay.io/minio/minio server /data --console-address ":9001"
 ```
-
+https://docs.min.io/docs/minio-docker-quickstart-guide.html
