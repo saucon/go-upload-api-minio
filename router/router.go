@@ -4,6 +4,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+	"log"
 )
 
 // setup gin's router
@@ -17,4 +18,15 @@ func NewRouter() *gin.Engine {
 	})
 
 	return router
+}
+
+func GroupingRouter(rtr *gin.Engine, handler ...func(c *gin.Context)) *gin.Engine {
+	if len(handler) == 0 {
+		log.Fatal("handler is 0")
+	}
+
+	api := rtr.Group("/v1.0/go-upload-api-minio")
+	api.POST("/upload", handler[0])
+
+	return rtr
 }

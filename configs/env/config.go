@@ -11,6 +11,7 @@ type ServerConfig struct {
 	JSONPathFile  string `env:"JSON_PATHFILE,required"`
 	DBConfig      DBConfig
 	ElasticConfig ElasticConfig
+	MinioConfig   MinioConfig
 }
 
 type DBConfig struct {
@@ -32,6 +33,13 @@ type ElasticConfig struct {
 	User     string `env:"USER_ELASTICSEARCH"`
 	Password string `env:"PASS_ELASTICSEARCH"`
 	Index    string `env:"INDEX_ELASTICSEARCH,required"`
+}
+
+type MinioConfig struct {
+	Host            string `env:"MINIO_HOST,required"`
+	AccessKey       string `env:"MINIO_ACCESS_KEY_ID,required"`
+	SecretAccessKey string `env:"MINIO_SECRET_ACCESS_KEY,required"`
+	UseSsl          bool   `env:"MINIO_USESSL,required"`
 }
 
 type Logs struct {

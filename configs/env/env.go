@@ -47,6 +47,11 @@ func loadConfig(filenames ...string) (err error) {
 		return err
 	}
 
+	err = env.Parse(&Config.MinioConfig)
+	if err != nil {
+		return err
+	}
+
 	return err
 }
 
